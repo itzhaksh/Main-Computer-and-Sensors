@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 
-#include "IfGroupBox.h"
+#include "ConditionsGroupBox.h"
 #include "ThenGroupBox.h"
 
 class Window : public QWidget
@@ -14,6 +14,6 @@ public:
 
 private:
 	QVBoxLayout* _windowLayout;
-	IfGroupBox* _ifGroupBox;
+	ConditionsGroupBox* _ConditionsGroupBox;
 	ThenGroupBox* _thenGroupBox;
 };
