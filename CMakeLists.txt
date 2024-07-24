@@ -1,0 +1,46 @@
+cmake_minimum_required(VERSION 3.16)
+project(MainComputer LANGUAGES CXX)
+
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+
+qt_standard_project_setup()
+
+include_directories(include)
+
+qt_add_executable(MainComputer
+    src/main.cpp
+    src/Window.cpp              include/Window.h
+    src/IfWidgetsLayout.cpp     include/IfWidgetsLayout.h
+    src/ThenWidgetsLayout       include/ThenWidgetsLayout
+    src/IfGroupBox              include/IfGroupBox
+    src/ThenGroupBox            include/ThenGroupBox
+    src/SimpleCondition.cpp     include/SimpleCondition.h
+    src/CompositeCondition.cpp  include/CompositeCondition.h
+    src/OrCondition.cpp         include/OrCondition.h 
+    src/AndCondition.cpp        include/AndCondition.h
+                                include/ConditionBase.h
+)
+
+set_target_properties(MainComputer PROPERTIES
+    WIN32_EXECUTABLE TRUE
+    MACOSX_BUNDLE TRUE
+)
+
+target_link_libraries(MainComputer PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+)
+
+install(TARGETS MainComputer
+    BUNDLE  DESTINATION .
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+qt_generate_deploy_app_script(
+    TARGET MainComputer
+    OUTPUT_SCRIPT deploy_script
+    NO_UNSUPPORTED_PLATFORM_ERROR
+)
+install(SCRIPT ${deploy_script})
