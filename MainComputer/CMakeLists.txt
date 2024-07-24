@@ -30,9 +30,13 @@ qt_generate_deploy_app_script(
 )
 install(SCRIPT ${deploy_script})
 
+target_include_directories(MainComputer PRIVATE ${CMAKE_SOURCE_DIR}/resources)
+
+
 target_link_libraries(MainComputer PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Widgets
     MainComputerHeaders  
+
 )

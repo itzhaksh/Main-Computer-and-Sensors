@@ -13,5 +13,17 @@ bool SimpleCondition::validate() {
     else if (validationType == "contains") {
         return input.find(validationValue) != std::string::npos;
     }
+    else if (validationType == "greater_than") {
+        return std::stoi(input) > std::stoi(validationValue);
+    }
     return false; 
 }
+
+nlohmann::json SimpleCondition::toJson() const {
+    return {
+        {"input", input},
+        {"validationType", validationType},
+        {"validationValue", validationValue}
+    };
+}
+
