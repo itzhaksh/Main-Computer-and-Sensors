@@ -7,20 +7,10 @@ qt_standard_project_setup()
 
 qt_add_executable(MainComputer
     src/main.cpp
-    include/Window.h
-    include/IfWidgetsLayout.h
-    include/ThenWidgetsLayout
-    include/IfGroupBox
-    include/ThenGroupBox
-    include/SimpleCondition.h
-    include/CompositeCondition.h
-    include/OrCondition.h 
-    include/AndCondition.h
-    include/ConditionBase.h
 )
 
 add_subdirectory(src)
-include_directories(include)
+add_subdirectory(include)
 
 set_target_properties(MainComputer PROPERTIES
     WIN32_EXECUTABLE TRUE
@@ -39,3 +29,10 @@ qt_generate_deploy_app_script(
     NO_UNSUPPORTED_PLATFORM_ERROR
 )
 install(SCRIPT ${deploy_script})
+
+target_link_libraries(MainComputer PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    MainComputerHeaders  
+)
