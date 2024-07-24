@@ -5,8 +5,6 @@ find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 
 qt_standard_project_setup()
 
-include_directories(include)
-
 qt_add_executable(MainComputer
     src/main.cpp
     src/Window.cpp              include/Window.h
@@ -20,6 +18,9 @@ qt_add_executable(MainComputer
     src/AndCondition.cpp        include/AndCondition.h
                                 include/ConditionBase.h
 )
+
+add_subdirectory(src)
+include_directories(include)
 
 set_target_properties(MainComputer PROPERTIES
     WIN32_EXECUTABLE TRUE
