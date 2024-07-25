@@ -3,9 +3,10 @@
 #include <QVBoxLayout>
 #include <QGroupBox>
 
-#include "ConditionWidgetsLayout.h"
+#include "SingleCondition.h"
+#include "ConditionLayoutBase.h"
 
-class ConditionsGroup : public QVBoxLayout
+class ConditionsGroup : public ConditionLayoutBase
 {
 	Q_OBJECT
 
@@ -18,20 +19,22 @@ public:
 	void andOrButtonSwitch();
 
 private:
-	std::vector<ConditionWidgetsLayout*> _conditionLayouts;
+	std::vector<ConditionLayoutBase*> _SingleConditions;
 	QGroupBox* _conditionsBox;
 	QVBoxLayout* _conditionsLayout;
 	QHBoxLayout* _buttonsLayout;
-	QPushButton* _addConditionButton;
 	QPushButton* _andOrButton;
+	QPushButton* _addConditionButton;
 	QPushButton* _deleteButton;
 	
-	void addConditionLayout(bool operationButton = false);
+	void addSingleCondition(bool operationButton = false);
+	void addConditionGroup(bool operationButton = false);
 	void createAddConditionButton();
 	void createDeleteButton();
-	void deleteCondition(ConditionWidgetsLayout* layout);
-	void addButtonClicked();
+	void deleteCondition(ConditionLayoutBase* layout);
+	void addSingleButtonClicked();
+	void addGroupButtonClicked();
 	
 signals:
-	void requestDelete(ConditionsGroup* group);
+	void requestDelete(ConditionLayoutBase* group);
 };

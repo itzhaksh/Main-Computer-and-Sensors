@@ -1,5 +1,7 @@
 #include "ConditionsGroup.h"
 
+#include <QMenu>
+
 ConditionsGroup::ConditionsGroup()
 	: _andOrButton(nullptr)
 {
@@ -11,7 +13,6 @@ ConditionsGroup::ConditionsGroup()
 	_conditionsBox->setLayout(_conditionsLayout);
 	addWidget(_conditionsBox);
 
-	addConditionLayout();
 	createAddConditionButton();
 	createDeleteButton();
 }
@@ -27,20 +28,33 @@ ConditionsGroup::~ConditionsGroup()
 	if (_deleteButton)
 		delete _deleteButton;
 
-	_conditionLayouts.clear();
+	_SingleConditions.clear();
 }
 
-void ConditionsGroup::addConditionLayout(bool operationButton)
+void ConditionsGroup::addSingleCondition(bool operationButton)
 {
-	ConditionWidgetsLayout* widgetsLayout = new ConditionWidgetsLayout;
-	if (operationButton == true && _conditionLayouts.empty() == false)
+	SingleCondition* widgetsLayout = new SingleCondition;
+	if (operationButton == true && _SingleConditions.empty() == false)
 	{
 		widgetsLayout->setAndOrButton();
 	}
 	_conditionsLayout->addLayout(widgetsLayout);
-	_conditionLayouts.push_back(widgetsLayout);
+	_SingleConditions.push_back(widgetsLayout);
 
-	connect(widgetsLayout, &ConditionWidgetsLayout::requestDelete, this, &ConditionsGroup::deleteCondition);
+	connect(widgetsLayout, &SingleCondition::requestDelete, this, &ConditionsGroup::deleteCondition);
+}
+
+void ConditionsGroup::addConditionGroup(bool operationButton)
+{
+	ConditionsGroup* widgetsLayout = new ConditionsGroup;
+	if (operationButton == true && _SingleConditions.empty() == false)
+	{
+		widgetsLayout->setAndOrButton();
+	}
+	_conditionsLayout->addLayout(widgetsLayout);
+	_SingleConditions.push_back(widgetsLayout);
+
+	connect(widgetsLayout, &ConditionsGroup::requestDelete, this, &ConditionsGroup::deleteCondition);
 }
 
 void ConditionsGroup::createAddConditionButton()
@@ -48,8 +62,25 @@ void ConditionsGroup::createAddConditionButton()
 	_addConditionButton = new QPushButton("+");
 	int defaultHeight = _addConditionButton->sizeHint().height();
 	_addConditionButton->setFixedSize(defaultHeight, defaultHeight);
-	connect(_addConditionButton, &QPushButton::clicked, this, &ConditionsGroup::addButtonClicked);
+	//connect(_addConditionButton, &QPushButton::clicked, this, &ConditionsGroup::addButtonClicked);
+
+	QMenu* menu = new QMenu();
+	QAction* addSingleConditionAction = new QAction("Add Single Condition");
+	QAction* addConditionGroupAction = new QAction("Add Condition Group");
+
+	menu->addAction(addSingleConditionAction);
+	menu->addAction(addConditionGroupAction);
+
+	connect(addSingleConditionAction, &QAction::triggered, this, &ConditionsGroup::addSingleButtonClicked);
+	connect(addConditionGroupAction, &QAction::triggered, this, &ConditionsGroup::addGroupButtonClicked);
+
+	// connect the button to show the menu
+	connect(_addConditionButton, &QPushButton::clicked, [this, menu]() {
+		menu->exec(QCursor::pos());
+	});
+
 	_conditionsLayout->addWidget(_addConditionButton);
+	//_buttonsLayout->addStretch(1);
 }
 
 void ConditionsGroup::createDeleteButton()
@@ -65,25 +96,34 @@ void ConditionsGroup::createDeleteButton()
 	});
 }
 
-void ConditionsGroup::deleteCondition(ConditionWidgetsLayout* layout)
+void ConditionsGroup::deleteCondition(ConditionLayoutBase* layout)
 {
-	if (_conditionLayouts.size() > 1 && _conditionLayouts.at(0) == layout)
+	if (_SingleConditions.size() > 1 && _SingleConditions.at(0) == layout)
 	{
-		_conditionLayouts.at(1)->deleteAndOrButton();
+		_SingleConditions.at(1)->deleteAndOrButton();
 		// it becames the first one, so no need in this button anymore
 	}
 	_conditionsLayout->removeItem(layout);
-	_conditionLayouts.erase(std::remove(_conditionLayouts.begin(), _conditionLayouts.end(), layout), _conditionLayouts.end());
+	_SingleConditions.erase(std::remove(_SingleConditions.begin(), _SingleConditions.end(), layout), _SingleConditions.end());
 	layout->deleteLater();
 	_conditionsLayout->update();
 }
 
-void ConditionsGroup::addButtonClicked()
+void ConditionsGroup::addSingleButtonClicked()
 {
 	if (_addConditionButton)
 		delete _addConditionButton;
 
-	addConditionLayout(true);
+	addSingleCondition(true);
+	createAddConditionButton();
+}
+
+void ConditionsGroup::addGroupButtonClicked()
+{
+	if (_addConditionButton)
+		delete _addConditionButton;
+
+	addConditionGroup(true);
 	createAddConditionButton();
 }
 

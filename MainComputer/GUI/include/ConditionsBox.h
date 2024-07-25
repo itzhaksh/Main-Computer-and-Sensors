@@ -4,7 +4,7 @@
 #include <QPushButton.h>
 
 
-#include "ConditionWidgetsLayout.h"
+#include "SingleCondition.h"
 #include "ConditionsGroup.h"
 
 class ConditionsBox : public QGroupBox
@@ -17,11 +17,11 @@ public:
 
 private:
 	QVBoxLayout* _layout;
-	std::vector<ConditionsGroup*> _conditionsGroup;
+	std::vector<ConditionLayoutBase*> _conditionsGroup;
 	QPushButton* _addConditionGroup;
 
 	void addConditionGroup(bool operationButton = false);
-	void deleteGroup(ConditionsGroup* group);
+	void deleteGroup(ConditionLayoutBase* group);
 	void createAddGroupButton();
 	void addButtonClicked();
 };
