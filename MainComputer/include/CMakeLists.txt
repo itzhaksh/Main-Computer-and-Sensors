@@ -11,6 +11,7 @@ set(HEADER_FILES
     ConditionBase.h
     OrCondition.h
     AndCondition.h
+    BinaryTreeBuilder.h
 )
 
 add_library(MainComputerHeaders INTERFACE)
