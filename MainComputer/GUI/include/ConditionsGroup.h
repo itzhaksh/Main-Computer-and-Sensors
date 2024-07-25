@@ -18,10 +18,10 @@ public:
 	void andOrButtonSwitch();
 
 private:
+	std::vector<ConditionWidgetsLayout*> _conditionLayouts;
 	QGroupBox* _conditionsBox;
 	QVBoxLayout* _conditionsLayout;
 	QHBoxLayout* _buttonsLayout;
-	std::vector<ConditionWidgetsLayout*> _conditionLayouts;
 	QPushButton* _addConditionButton;
 	QPushButton* _andOrButton;
 	QPushButton* _deleteButton;

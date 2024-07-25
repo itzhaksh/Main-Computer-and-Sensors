@@ -5,18 +5,12 @@ project(MainComputerHeaders LANGUAGES CXX)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 set(HEADER_FILES
-    Window.h
-    ConditionWidgetsLayout.h
-    ThenWidgetsLayout.h
-    ConditionsBox.h
-    ThenGroupBox.h
     SimpleCondition.h
     CompositeCondition.h
     conditionsManager.h
     ConditionBase.h
     OrCondition.h
     AndCondition.h
-    ConditionsGroup.h
 )
 
 add_library(MainComputerHeaders INTERFACE)

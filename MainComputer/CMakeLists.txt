@@ -11,6 +11,8 @@ qt_add_executable(MainComputer
 
 add_subdirectory(src)
 add_subdirectory(include)
+add_subdirectory(GUI/src)
+add_subdirectory(GUI/include)
 
 set_target_properties(MainComputer PROPERTIES
     WIN32_EXECUTABLE TRUE
@@ -38,5 +40,5 @@ target_link_libraries(MainComputer PRIVATE
     Qt6::Gui
     Qt6::Widgets
     MainComputerHeaders  
-
+    GuiHeaders
 )
