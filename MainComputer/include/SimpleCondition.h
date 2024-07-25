@@ -13,6 +13,8 @@ private:
 public:
     SimpleCondition(const std::string& input, const std::string& validationType, const std::string& validationValue);
     bool validate() override;
+    nlohmann::json toJson() const override;
+
 };
 
 #endif 

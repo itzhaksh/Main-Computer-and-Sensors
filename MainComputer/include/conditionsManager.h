@@ -3,15 +3,18 @@
 
 #include "ConditionBase.h"
 #include <vector>
+#include <string>
+#include <../resources/json.hpp>
 
-class conditionsManager {
+class ConditionsManager {
 private:
     std::vector<ConditionBase*> conditions;
 
 public:
     void addCondition(ConditionBase* condition);
-    bool validateAll();
-    ~conditionsManager();
+    bool validateAll() const;
+    void exportToJson(const std::string& filename) const;
+    ~ConditionsManager();
 };
 
-#endif 
+#endif

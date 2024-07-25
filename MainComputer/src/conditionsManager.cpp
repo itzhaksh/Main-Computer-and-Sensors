@@ -1,11 +1,19 @@
-#include "conditionsManager.h"
+#include "ConditionsManager.h"
+#include <stdexcept>
+#include <fstream>
 
-void conditionsManager::addCondition(ConditionBase* condition) {
+ConditionsManager::~ConditionsManager() {
+    for (ConditionBase* condition : conditions) {
+        delete condition;
+    }
+}
+
+void ConditionsManager::addCondition(ConditionBase* condition) {
     conditions.push_back(condition);
 }
 
-bool conditionsManager::validateAll() {
-    for (auto condition : conditions) {
+bool ConditionsManager::validateAll() const {
+    for (const ConditionBase* condition : conditions) {
         if (!condition->validate()) {
             return false;
         }
@@ -13,8 +21,14 @@ bool conditionsManager::validateAll() {
     return true;
 }
 
-conditionsManager::~conditionsManager() {
-    for (auto condition : conditions) {
-        delete condition;
+void ConditionsManager::exportToJson(const std::string& filename) const {
+    nlohmann::json j;
+    for (size_t i = 0; i < conditions.size(); ++i) {
+        j["conditions"].push_back(conditions[i]->toJson());
     }
+    std::ofstream file(filename);
+    if (!file) {
+        throw std::runtime_error("Cannot open file: " + filename);
+    }
+    file << j.dump(4);
 }
