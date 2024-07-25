@@ -28,12 +28,11 @@ ConditionWidgetsLayout::ConditionWidgetsLayout(QWidget* parent)
 	_deleteButton->setFixedSize(defaultHeight, defaultHeight);
 	_Conditionlayout->addWidget(_deleteButton);
 	
-	_Conditionlayout->addStretch(1);
-
 	connect(_deleteButton, &QPushButton::clicked, this, [this]() {
 		emit requestDelete(this);
 	});
 
+	_Conditionlayout->addStretch(1);
 	addLayout(_Conditionlayout);
 
 	addStretch(1);
@@ -58,6 +57,9 @@ void ConditionWidgetsLayout::setAndOrButton(bool And)
 	if (!_andOrButton)
 	{
 		_andOrButton = new QPushButton(And == true ? "and" : "or");
+		int defaultHeight = _andOrButton->sizeHint().height();
+		_andOrButton->setFixedSize(defaultHeight * 3, defaultHeight);
+
 		insertWidget(0, _andOrButton);
 
 		connect(_andOrButton, &QPushButton::clicked, this, &ConditionWidgetsLayout::andOrButtonSwitch);
@@ -79,7 +81,7 @@ void ConditionWidgetsLayout::andOrButtonSwitch()
 
 void ConditionWidgetsLayout::deleteAndOrButton()
 {
-	//_andOrButton->deleteLater();
+	_andOrButton->deleteLater();
 	delete _andOrButton;
 	_andOrButton = nullptr;
 }

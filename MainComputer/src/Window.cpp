@@ -4,11 +4,11 @@ Window::Window()
 {
     setWindowTitle("Main Computer");
     
-    _ConditionsGroupBox = new ConditionsGroupBox;
+    _ConditionsBox = new ConditionsBox;
     _thenGroupBox = new ThenGroupBox;
 
     _windowLayout = new QVBoxLayout;
-    _windowLayout->addWidget(_ConditionsGroupBox);
+    _windowLayout->addWidget(_ConditionsBox);
     _windowLayout->addWidget(_thenGroupBox);
     _windowLayout->addStretch(1);
 

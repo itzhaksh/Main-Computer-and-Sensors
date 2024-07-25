@@ -22,10 +22,10 @@ signals:
 	void requestDelete(ConditionWidgetsLayout* layout);
 
 private:
-	QHBoxLayout* _Conditionlayout;
-	QComboBox* _inputSource;
-	QComboBox* _conditionType;
-	QLineEdit* _validationValue;
-	QPushButton* _andOrButton;
-	QPushButton* _deleteButton;
+	QHBoxLayout*	_Conditionlayout;
+	QComboBox*		_inputSource;
+	QComboBox*		_conditionType;
+	QLineEdit*		_validationValue;
+	QPushButton*	_andOrButton;
+	QPushButton*	_deleteButton;
 };

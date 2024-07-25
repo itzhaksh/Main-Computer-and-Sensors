@@ -8,7 +8,7 @@ set(HEADER_FILES
     Window.h
     ConditionWidgetsLayout.h
     ThenWidgetsLayout.h
-    ConditionsGroupBox.h
+    ConditionsBox.h
     ThenGroupBox.h
     SimpleCondition.h
     CompositeCondition.h
@@ -16,6 +16,7 @@ set(HEADER_FILES
     ConditionBase.h
     OrCondition.h
     AndCondition.h
+    ConditionsGroup.h
 )
 
 add_library(MainComputerHeaders INTERFACE)

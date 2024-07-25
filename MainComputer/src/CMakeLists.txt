@@ -8,10 +8,11 @@ target_sources(MainComputer PRIVATE
     Window.cpp
     ConditionWidgetsLayout.cpp
     ThenWidgetsLayout.cpp
-    ConditionsGroupBox.cpp
+    ConditionsBox.cpp
     ThenGroupBox.cpp
     SimpleCondition.cpp
     CompositeCondition.cpp
     OrCondition.cpp
     AndCondition.cpp
+    ConditionsGroup.cpp
 )
