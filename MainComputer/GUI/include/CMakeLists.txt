@@ -6,11 +6,12 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 set(HEADER_FILES
     Window.h
-    ConditionWidgetsLayout.h
+    SingleCondition.h
     ThenWidgetsLayout.h
     ConditionsBox.h
     ThenGroupBox.h
     ConditionsGroup.h
+    ConditionLayoutBase.h
 )
 
 add_library(GuiHeaders INTERFACE)

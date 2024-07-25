@@ -1,44 +1,44 @@
-#include "ConditionWidgetsLayout.h"
+#include "SingleCondition.h"
 
-ConditionWidgetsLayout::ConditionWidgetsLayout(QWidget* parent)
-	: QVBoxLayout(parent), _andOrButton(nullptr)
+SingleCondition::SingleCondition()
+	: _andOrButton(nullptr)
 {
-	_Conditionlayout = new QHBoxLayout;
+	_SingleCondition = new QHBoxLayout;
 
-	_inputSource = new QComboBox(parent);
+	_inputSource = new QComboBox();
 	_inputSource->setPlaceholderText("input source");
 	_inputSource->addItem("sensor 1");
 	_inputSource->addItem("sensor 2");
 	_inputSource->addItem("sensor 3");
-	_Conditionlayout->addWidget(_inputSource);
+	_SingleCondition->addWidget(_inputSource);
 
-	_conditionType = new QComboBox(parent);
+	_conditionType = new QComboBox();
 	_conditionType->setPlaceholderText("condition");
 	_conditionType->addItem("greater then");
 	_conditionType->addItem("smaller then");
 	_conditionType->addItem("equels to");
-	_Conditionlayout->addWidget(_conditionType);
+	_SingleCondition->addWidget(_conditionType);
 
-	_validationValue = new QLineEdit(parent);
+	_validationValue = new QLineEdit();
 	_validationValue->setPlaceholderText("validation value");
-	_Conditionlayout->addWidget(_validationValue);
+	_SingleCondition->addWidget(_validationValue);
 
 	_deleteButton = new QPushButton("-");
 	int defaultHeight = _deleteButton->sizeHint().height();
 	_deleteButton->setFixedSize(defaultHeight, defaultHeight);
-	_Conditionlayout->addWidget(_deleteButton);
+	_SingleCondition->addWidget(_deleteButton);
 	
 	connect(_deleteButton, &QPushButton::clicked, this, [this]() {
 		emit requestDelete(this);
 	});
 
-	_Conditionlayout->addStretch(1);
-	addLayout(_Conditionlayout);
+	_SingleCondition->addStretch(1);
+	addLayout(_SingleCondition);
 
 	addStretch(1);
 }
 
-ConditionWidgetsLayout::~ConditionWidgetsLayout()
+SingleCondition::~SingleCondition()
 {
 	if (_inputSource)
 		delete _inputSource;
@@ -52,7 +52,7 @@ ConditionWidgetsLayout::~ConditionWidgetsLayout()
 		delete _andOrButton;
 }
 
-void ConditionWidgetsLayout::setAndOrButton(bool And)
+void SingleCondition::setAndOrButton(bool And)
 {
 	if (!_andOrButton)
 	{
@@ -62,7 +62,7 @@ void ConditionWidgetsLayout::setAndOrButton(bool And)
 
 		insertWidget(0, _andOrButton);
 
-		connect(_andOrButton, &QPushButton::clicked, this, &ConditionWidgetsLayout::andOrButtonSwitch);
+		connect(_andOrButton, &QPushButton::clicked, this, &SingleCondition::andOrButtonSwitch);
 	}
 	else
 	{
@@ -70,7 +70,7 @@ void ConditionWidgetsLayout::setAndOrButton(bool And)
 	}
 }
 
-void ConditionWidgetsLayout::andOrButtonSwitch()
+void SingleCondition::andOrButtonSwitch()
 {
 	QString text = _andOrButton->text();
 	if (text == "or")
@@ -79,7 +79,7 @@ void ConditionWidgetsLayout::andOrButtonSwitch()
 		_andOrButton->setText("or");
 }
 
-void ConditionWidgetsLayout::deleteAndOrButton()
+void SingleCondition::deleteAndOrButton()
 {
 	_andOrButton->deleteLater();
 	delete _andOrButton;

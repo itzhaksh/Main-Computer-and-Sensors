@@ -6,7 +6,7 @@ target_link_libraries(MainComputer PRIVATE
 
 target_sources(MainComputer PRIVATE
     Window.cpp
-    ConditionWidgetsLayout.cpp
+    SingleCondition.cpp
     ThenWidgetsLayout.cpp
     ConditionsBox.cpp
     ThenGroupBox.cpp

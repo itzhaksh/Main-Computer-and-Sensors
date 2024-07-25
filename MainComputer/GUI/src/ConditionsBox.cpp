@@ -6,7 +6,6 @@ ConditionsBox::ConditionsBox()
 	: QGroupBox("if")
 {
 	_layout = new QVBoxLayout;
-	addConditionGroup();
 	createAddGroupButton();
 	setLayout(_layout);
 }
@@ -32,7 +31,7 @@ void ConditionsBox::addConditionGroup(bool operationButton)
 	connect(group, &ConditionsGroup::requestDelete, this, &ConditionsBox::deleteGroup);
 }
 
-void ConditionsBox::deleteGroup(ConditionsGroup* group)
+void ConditionsBox::deleteGroup(ConditionLayoutBase* group)
 {
 
 	if (_conditionsGroup.size() > 1 && _conditionsGroup.at(0) == group)

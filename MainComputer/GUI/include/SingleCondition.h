@@ -6,23 +6,25 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 
-class ConditionWidgetsLayout : public QVBoxLayout
+#include "ConditionLayoutBase.h"
+
+class SingleCondition : public ConditionLayoutBase
 {
 	Q_OBJECT
 
 public:
-	ConditionWidgetsLayout(QWidget* parent = nullptr);
-	~ConditionWidgetsLayout();
+	SingleCondition();
+	~SingleCondition();
 
 	void setAndOrButton(bool And = true);
-	void andOrButtonSwitch();
 	void deleteAndOrButton();
+	void andOrButtonSwitch();
 
 signals:
-	void requestDelete(ConditionWidgetsLayout* layout);
+	void requestDelete(ConditionLayoutBase* layout);
 
 private:
-	QHBoxLayout*	_Conditionlayout;
+	QHBoxLayout*	_SingleCondition;
 	QComboBox*		_inputSource;
 	QComboBox*		_conditionType;
 	QLineEdit*		_validationValue;
