@@ -28,7 +28,7 @@ void Window::save()
     
     file << "Window::save" << std::endl;
 
-    _ConditionsBox->save(file);
+    _ConditionsBox->data(file);
 
     file.close();
 }

@@ -132,7 +132,7 @@ void ConditionsGroup::setAndOrButton(bool And)
 {
 	if (!_andOrButton)
 	{
-		_andOrButton = new QPushButton(And == true ? "and group" : "or group");
+		_andOrButton = new QPushButton(And == true ? "and" : "or");
 		int defaultHeight = _andOrButton->sizeHint().height();
 		_andOrButton->setFixedSize(defaultHeight * 3, defaultHeight);
 		_buttonsLayout->insertWidget(0, _andOrButton);
@@ -141,7 +141,7 @@ void ConditionsGroup::setAndOrButton(bool And)
 	}
 	else
 	{
-		_andOrButton->setText(And == true ? "and group" : "or group");
+		_andOrButton->setText(And == true ? "and" : "or");
 	}
 }
 
@@ -155,18 +155,27 @@ void ConditionsGroup::deleteAndOrButton()
 void ConditionsGroup::andOrButtonSwitch()
 {
 	QString text = _andOrButton->text();
-	if (text == "or group")
-		_andOrButton->setText("and group");
+	if (text == "or")
+		_andOrButton->setText("and");
 	else
-		_andOrButton->setText("or group");
+		_andOrButton->setText("or");
 }
 
-void ConditionsGroup::save(std::ofstream& file)
+ConditionBase* ConditionsGroup::data(std::ofstream& file)
 {
-	file << "ConditionsGroup::save" << std::endl;
+	if (_andOrButton != nullptr)
+	{
+		file << _andOrButton->text().toStdString() << std::endl;
+	}
+
+	file << std::endl;
 
 	for (const auto it : _SingleConditions)
 	{
-		it->save(file);
+		it->data(file);
 	}
+
+	file << std::endl;
+
+	return nullptr; // temp
 }

@@ -81,9 +81,23 @@ void SingleCondition::andOrButtonSwitch()
 		_andOrButton->setText("or");
 }
 
-void SingleCondition::save(std::ofstream& file)
+ConditionBase* SingleCondition::data(std::ofstream& file)
 {
-	file << "SingleCondition::save" << std::endl;
+	if (_andOrButton != nullptr)
+	{
+		if (_andOrButton->text().toStdString()._Equal("and"))
+			file << "and";
+		else
+			file << "or";
+		file << std::endl;
+	}
+	file << _inputSource->currentText().toStdString()	<< " > "
+		<< _conditionType->currentText().toStdString()	<< " > "
+		<< _validationValue->text().toStdString();
+
+	file << std::endl;
+
+	return nullptr; // temp
 }
 
 void SingleCondition::deleteAndOrButton()

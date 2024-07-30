@@ -17,7 +17,7 @@ public:
 	void setAndOrButton(bool And = true);
 	void deleteAndOrButton();
 	void andOrButtonSwitch();
-	void save(std::ofstream& file);
+	ConditionBase* data(std::ofstream& file);
 
 private:
 	std::vector<ConditionLayoutBase*> _SingleConditions;

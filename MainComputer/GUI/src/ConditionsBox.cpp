@@ -19,14 +19,16 @@ ConditionsBox::~ConditionsBox()
 		delete _addConditionGroup;
 }
 
-void ConditionsBox::save(std::ofstream& file)
+ConditionBase* ConditionsBox::data(std::ofstream& file)
 {
 	file << "ConditionsBox::save" << std::endl;
 
 	for (const auto it : _conditionsGroup)
 	{
-		it->save(file);
+		it->data(file);
 	}
+
+	return nullptr; // temp
 }
 
 void ConditionsBox::addConditionGroup(bool operationButton)
