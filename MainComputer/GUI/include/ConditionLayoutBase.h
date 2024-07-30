@@ -12,4 +12,5 @@ public:
 	virtual void setAndOrButton(bool And = true) = 0;
 	virtual void deleteAndOrButton()			 = 0;
 	virtual void andOrButtonSwitch()			 = 0;
+	virtual void save(std::ofstream& file)		 = 0;
 };

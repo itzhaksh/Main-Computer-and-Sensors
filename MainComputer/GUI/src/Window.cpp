@@ -1,6 +1,7 @@
 #include "Window.h"
 
 #include <iostream>
+#include <fstream>
 
 Window::Window()
 {
@@ -23,5 +24,11 @@ Window::Window()
 
 void Window::save()
 {
+    std::ofstream file("temp.txt");
     
+    file << "Window::save" << std::endl;
+
+    _ConditionsBox->save(file);
+
+    file.close();
 }

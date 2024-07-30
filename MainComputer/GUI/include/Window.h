@@ -11,6 +11,8 @@ class Window : public QWidget
 {
 public:
 	Window();
+	
+	void save();
 
 private:
 	QVBoxLayout* _windowLayout;
@@ -18,5 +20,4 @@ private:
 	ThenGroupBox* _thenGroupBox;
 	QPushButton* _saveButton;
 
-	void save();
 };

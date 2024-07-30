@@ -15,6 +15,8 @@ public:
 	ConditionsBox();
 	~ConditionsBox();
 
+	void save(std::ofstream& file);
+
 private:
 	QVBoxLayout* _layout;
 	std::vector<ConditionLayoutBase*> _conditionsGroup;

@@ -1,6 +1,7 @@
 #include "ConditionsBox.h"
 
 #include <iostream>
+#include <fstream>
 
 ConditionsBox::ConditionsBox()
 	: QGroupBox("if")
@@ -16,6 +17,16 @@ ConditionsBox::~ConditionsBox()
 		delete _layout;
 	if (_addConditionGroup)
 		delete _addConditionGroup;
+}
+
+void ConditionsBox::save(std::ofstream& file)
+{
+	file << "ConditionsBox::save" << std::endl;
+
+	for (const auto it : _conditionsGroup)
+	{
+		it->save(file);
+	}
 }
 
 void ConditionsBox::addConditionGroup(bool operationButton)

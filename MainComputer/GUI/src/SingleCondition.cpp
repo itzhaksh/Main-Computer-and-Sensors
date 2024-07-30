@@ -1,5 +1,7 @@
 #include "SingleCondition.h"
 
+#include <fstream>
+
 SingleCondition::SingleCondition()
 	: _andOrButton(nullptr)
 {
@@ -77,6 +79,11 @@ void SingleCondition::andOrButtonSwitch()
 		_andOrButton->setText("and");
 	else
 		_andOrButton->setText("or");
+}
+
+void SingleCondition::save(std::ofstream& file)
+{
+	file << "SingleCondition::save" << std::endl;
 }
 
 void SingleCondition::deleteAndOrButton()

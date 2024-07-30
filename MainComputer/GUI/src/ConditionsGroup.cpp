@@ -1,5 +1,6 @@
 #include "ConditionsGroup.h"
 
+#include <fstream>
 #include <QMenu>
 
 ConditionsGroup::ConditionsGroup()
@@ -158,4 +159,14 @@ void ConditionsGroup::andOrButtonSwitch()
 		_andOrButton->setText("and group");
 	else
 		_andOrButton->setText("or group");
+}
+
+void ConditionsGroup::save(std::ofstream& file)
+{
+	file << "ConditionsGroup::save" << std::endl;
+
+	for (const auto it : _SingleConditions)
+	{
+		it->save(file);
+	}
 }
