@@ -16,4 +16,7 @@ private:
 	QVBoxLayout* _windowLayout;
 	ConditionsBox* _ConditionsBox;
 	ThenGroupBox* _thenGroupBox;
+	QPushButton* _saveButton;
+
+	void save();
 };
