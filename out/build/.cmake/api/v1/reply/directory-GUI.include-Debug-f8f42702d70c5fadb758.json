@@ -1,0 +1,49 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"GUI/include/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"GUI/include/Window.h",
+				"GUI/include/SingleCondition.h",
+				"GUI/include/ThenWidgetsLayout.h",
+				"GUI/include/ConditionsBox.h",
+				"GUI/include/ThenGroupBox.h",
+				"GUI/include/ConditionsGroup.h",
+				"GUI/include/ConditionLayoutBase.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "GUI/include",
+		"source" : "GUI/include"
+	}
+}

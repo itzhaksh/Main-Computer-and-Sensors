@@ -1,0 +1,182 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-df30cf28a32a098de045.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "include",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-include-Debug-e0bf3fa60462472a6fc9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "include"
+				},
+				{
+					"build" : "GUI/src",
+					"jsonFile" : "directory-GUI.src-Debug-a9171019495b00c670b1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "GUI/src"
+				},
+				{
+					"build" : "GUI/include",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-GUI.include-Debug-f8f42702d70c5fadb758.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "GUI/include"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						3
+					],
+					"name" : "MainComputer",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "MainComputerHeaders",
+					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "MainComputerHeaders",
+					"parentIndex" : 0
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "MainComputer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MainComputer-Debug-8a902405cdbbddc70c42.json",
+					"name" : "MainComputer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MainComputer_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MainComputer_autogen-Debug-a64fdd173da3ce777ca6.json",
+					"name" : "MainComputer_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MainComputer_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MainComputer_autogen_timestamp_deps-Debug-b4410200fca42fde9dd6.json",
+					"name" : "MainComputer_autogen_timestamp_deps",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_and_condition::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_and_condition-Debug-615cb17a2fa72f3b28b5.json",
+					"name" : "test_and_condition",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_and_condition_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_and_condition_autogen-Debug-7d949e97f1779287811c.json",
+					"name" : "test_and_condition_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_and_condition_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_and_condition_autogen_timestamp_deps-Debug-ccea8fb5894c115b91f3.json",
+					"name" : "test_and_condition_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/itzha/source/repos/VehicleCompSim/MainComputer/out/build",
+		"source" : "C:/Users/itzha/source/repos/VehicleCompSim/MainComputer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

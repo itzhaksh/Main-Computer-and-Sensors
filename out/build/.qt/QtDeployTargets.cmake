@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_MainComputer_FILE C:/Users/itzha/source/repos/VehicleCompSim/MainComputer/out/build/MainComputer.exe)
+set(__QT_DEPLOY_TARGET_MainComputer_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_MainComputer_RUNTIME_DLLS C:/Qt/6.7.2/msvc2019_64/bin/Qt6Widgetsd.dll;C:/Qt/6.7.2/msvc2019_64/bin/Qt6Guid.dll;C:/Qt/6.7.2/msvc2019_64/bin/Qt6Cored.dll)
+set(__QT_DEPLOY_TARGET_test_and_condition_FILE C:/Users/itzha/source/repos/VehicleCompSim/MainComputer/out/build/test_and_condition.exe)
+set(__QT_DEPLOY_TARGET_test_and_condition_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_test_and_condition_RUNTIME_DLLS )
