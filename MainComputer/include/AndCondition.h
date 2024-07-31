@@ -2,7 +2,7 @@
 #define AND_CONDITION_H
 
 #include "CompositeCondition.h"
-#include <../resources/json.hpp>
+#include "../resources/json.hpp"
 
 
 class AndCondition : public CompositeCondition {
